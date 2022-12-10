@@ -13,7 +13,5 @@ const fs = require('fs');
 
 const data = fs.readFileSync('./inputs/day$1/input', 'utf8');
 let datalines = data.split('\n');
-if (datalines.slice(-1) == '') {
-	datalines = datalines.slice(0, datalines.length-1);
-};
+datalines = datalines.filter(x => x!= '');
 EOF
