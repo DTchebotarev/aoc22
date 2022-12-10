@@ -12,9 +12,9 @@ let buffer;
 let wait = false;
 while (datalines.length) {
 	if ( Math.abs((clock-1) % 40 - register)  <= 1 ){
-		process.stdout.write('#');
+		process.stdout.write('█');
 	} else {
-		process.stdout.write('.');
+		process.stdout.write(' ');
 	};
 	if ( (clock ) % 40 == 0 ) {
 		process.stdout.write(' '+ clock+ '\n');
