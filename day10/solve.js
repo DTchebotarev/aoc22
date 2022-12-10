@@ -11,14 +11,15 @@ let buffer;
 
 let wait = false;
 while (datalines.length) {
-	if ( Math.abs(clock  % 40 - register - 1) <= 1 ){
+	if ( Math.abs((clock-1) % 40 - register)  <= 1 ){
 		process.stdout.write('#');
 	} else {
 		process.stdout.write('.');
 	};
 	if ( (clock ) % 40 == 0 ) {
-		process.stdout.write('\n');
+		process.stdout.write(' '+ clock+ '\n');
 	}
+
 
 	const [l1, l2] = datalines[0].split(' ');
 	if (l1 == 'addx' && wait == false) {
@@ -32,8 +33,8 @@ while (datalines.length) {
 	};
 
 
+	clock ++;
 
-	clock ++
 	if ([20,60,100,140,180,220].includes(clock)) {
 		total += clock * register;
 	};
